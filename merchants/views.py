@@ -13,6 +13,9 @@ def merchant_dashboard(request):
 def merchant_events(request):
     return render(request, "merchants/events.html")
 
+def merchant_welcome(request):
+    return render(request, "merchants/welcome.html")   
+
 def merchant_login(request):
     form = Login()
     context = {
