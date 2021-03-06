@@ -4,3 +4,5 @@ env
 Rewardex/__pycache__
 users/__pycache__
 merchants/__pycache__
+merchants/migrations/__pycache__
+users/migrations/__pycache__
