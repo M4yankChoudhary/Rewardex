@@ -1,0 +1,61 @@
+{% extends 'merchants/base.html' %}
+
+{% block title %}
+Merchant -Dashboard
+{% endblock %}
+
+{% block main %}
+<div id="container">
+           
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text" style="text-align: center; padding: 10px;"><i class="fa fa-address-book-o fa-2x" aria-hidden="true"></i> Some quick</p>
+      </div>
+    </div>
+ 
+    <div class="card">
+      
+      <div class="card-body">
+        <p class="card-text" style="text-align: center; padding: 10px;"><i class="fa fa-address-book-o fa-2x" aria-hidden="true"></i> Some quick</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text" style="text-align: center; padding: 10px;"><i class="fa fa-address-book-o fa-2x" aria-hidden="true"></i> Some quick</p>
+      </div>
+    </div>
+</div>
+
+<h1>Charts</h1>
+<div class="chart-flex">
+<div style="height: 200px; width: 500px;">
+<canvas  id="myChart"></canvas>
+</div>
+</div>
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
+
+
+{% endblock %}
