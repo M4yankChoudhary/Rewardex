@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Lato", sans-serif;
-  }
+}
 
   .navbar.center .navbar-inner {
     text-align: center;
@@ -21,6 +22,10 @@ nav {
     display:inline-block;
     float: none;
 }
+
+.navbar {
+  background-color: cornflowerblue;
+}
   
   .sidebar {
     height: 100%;
@@ -29,7 +34,8 @@ nav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: white;
+    border: 1px solid black;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -39,7 +45,8 @@ nav {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    /* color: #818181; */
+    color: black;
     display: block;
     transition: 0.3s;
   }
@@ -76,11 +83,76 @@ nav {
   #main {
     transition: margin-left .5s;
   }
+
+  #mySidebar {
+    width: 250px;
+  }
+
+  #main {
+    margin-left: 250px;
+  }
+
+  .openbtn {
+    visibility: hidden;;
+  }
+
+  .closebtn {
+    visibility: hidden;
+  }
+
+  a#dropdownMenuLink{
+    margin-right: 20px !important;
+    background-color: red;
+  }
   
+  .dropdown{
+    color: white !important;
+  }
+
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+
+    
+  
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    #mySidebar{
+      width: 0px;
+    }
+
+    #main {
+      margin-left: 0px;
+    }
+
+    .closebtn {
+      visibility: visible;
+    }
+
+    .openbtn {
+      visibility: visible;
+    }
+  }
+
+
+  @media only screen and (min-width: 620px) {
+    #mySidebar{
+      width: 250px;
+    }
+
+    #main {
+      margin-left: 250px;
+    }
+
   }
 
 
