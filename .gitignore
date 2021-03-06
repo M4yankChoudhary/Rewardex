@@ -1,0 +1,6 @@
+env
+.env
+./env
+Rewardex/__pycache__
+users/__pycache__
+merchants/__pycache__
