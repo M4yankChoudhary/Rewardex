@@ -22,3 +22,16 @@ def merchant_login(request):
         "form" : form
     }
     return render(request, "merchants/login.html", context)
+
+
+class Scratchgame(forms.Form):
+    Offerpercnt = forms.IntegerField(label="Offer percent", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
+    minorderplace = forms.IntegerField(label="Minimum order place", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
+    validdays = forms.IntegerField(label="Valid days", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
+
+def scratch_event(request):
+    formscratch = Scratchgame()
+    context = {
+    "formscratch" : formscratch
+    }
+    return render(request, "merchants/scratchform.html", context)

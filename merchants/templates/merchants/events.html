@@ -5,7 +5,18 @@ Merchant - Events
 {% endblock %}
 
 {% block main %}
+{% load static %}
+<div id="cards_container">
+            
+    <a class="cardclick" href="{% url 'merchantscratch' %}">
+    <div class="card" style="width: 18rem;">
+      <img src="{% static 'merchants/images/default.png' %}" style="height: 180px; width: 180px; margin-top: 20px;" class="card-img-top" alt="...">
+      <div class="card-body" style="width: 100%;">
+        <p class="card-text" style="text-align: center; padding: 10px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    </a>
 
-Event
+</div>
 
 {% endblock %}
