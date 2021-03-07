@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scratch</title>
+        <style>
+            .card{
+             width: 300px;
+             height: 300px;
+             position: relative;
+             box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+            margin: 10px auto;
+            }    
+            
+          .base, #scratch {
+            cursor: default;
+            height: 300px;
+            width: 300px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              cursor: grabbing;
+          }
+          .base {
+            line-height: 300px;
+            text-align: center;
+          }
+          #scratch {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+          }
+        </style>
+    </head>
+    <body>
+        <main>
+               <div class="card">
+                    <div class="base">
+                        Coupon Code: 123456789
+                    </div>
+                    <canvas id="scratch" width="300" height="300"></canvas>
+               </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

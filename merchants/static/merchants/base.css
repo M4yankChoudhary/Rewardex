@@ -174,3 +174,33 @@ nav {
     justify-content: center;
   }
   
+
+  /* Events.css */
+  #cards_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 100vh;
+    flex-wrap: wrap;
+   }
+ #cards_container  div{
+    width: 400px;
+    height: 400px;
+    margin: 15px;
+    align-items: center;
+    background-color:lightgray;
+    opacity: 0.8;
+    color:black;
+   }
+  #cards_container  div:hover{
+      opacity: 0.6;   
+  }
+  a{
+      display: block;
+      text-decoration: none !important;
+  }
+  .card-text:hover{
+      font-size: 20px;
+  }
+ 
