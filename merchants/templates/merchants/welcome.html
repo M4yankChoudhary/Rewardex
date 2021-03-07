@@ -44,8 +44,8 @@
             <class class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">login</a>
-                    <a class="nav-link" href="#">signup</a>
+                    <a class="nav-link" href="{% url 'userLogin' %}">login</a>
+                    <a class="nav-link" href="{% url 'userSignup' %}">signup</a>
                 </div>
             </class>
         </div>
@@ -64,7 +64,9 @@
                         and scrambled it to make a type specimen book. It has survived not only five centuries, but also
                         the
                         leap into electronic typesetting,</p>
-                    <button class="btn btn-lg btn-primary">get started</button>
+                    <a href="{% url 'userSignup' %}">
+                        <button class="btn btn-lg btn-primary">get started</button>
+                    </a>
                 </div>
                 <div class="col-lg-6 col-md-6  bounceInRight">
                     <img class="side" src="{% static 'merchants/images/side.png' %}" alt="">
