@@ -1,0 +1,25 @@
+{% extends 'merchants/forms.html' %}
+
+  {% block title %}
+    Spin Form
+  {% endblock %}
+
+  <!-- background image -->
+ 
+
+{%block body %}
+<div id="bgimg">
+
+    <div class="card text-center" style="width: 350px;height: 436px; margin-left: 40%;margin-top: 7%;">
+        <div class="card-body">
+          <h4>Fortune Wheel</h4>
+          <div style="padding: 10% 10% 10% 10%;">
+              {{formspin}}
+          </div>
+          <a href="#" class="btn btn-primary form-control" style="width: 50%;" >Generate</a>
+        </div>
+      </div>
+    
+    </div>
+{% endblock %}
+</html>

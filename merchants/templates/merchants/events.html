@@ -1,11 +1,46 @@
 {% extends 'merchants/base.html' %}
 
 {% block title %}
-Merchant - Events
+Merchant Events
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'merchants/events.css' %}">
 {% endblock %}
 
 {% block main %}
+{% load static %}
+<!-- EVENT CARDS -->
+<div id="cards_container">
+            
+    <a class="cardclick" href="{% url 'merchantspin' %}">
+       <div class="card" style="width: 18rem;">
+          <img src="{% static 'merchants/images/default.png' %}" style="height: 180px; width: 180px; margin-top: 20px;" class="card-img-top" alt="...">
+          <div class="card-body" style="width: 100%;">
+             <p class="card-text" style="text-align: center; padding: 10px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+       </div>
+    </a>
 
-Event
+    <a class="cardclick" href="{% url 'merchantqr' %}">
+    <div class="card" style="width: 18rem;">
+      <img src="{% static 'merchants/images/default.png' %}" style="height: 180px; width: 180px; margin-top: 20px;" class="card-img-top" alt="...">
+      <div class="card-body" style="width: 100%;">
+        <p class="card-text" style="text-align: center; padding: 10px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    </a>
 
+    <a class="cardclick" href="{% url 'merchantscrach' %}">
+    <div class="card" style="width: 18rem;">
+      <img src="{% static 'merchants/images/default.png' %}" style="height: 180px; width: 180px; margin-top: 20px;" class="card-img-top" alt="...">
+      <div class="card-body" style="width: 100%;">
+        <p class="card-text" style="text-align: center; padding: 10px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    </a>
+
+</div>
+<!-- endcards -->
 {% endblock %}

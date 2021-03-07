@@ -1,0 +1,27 @@
+{% extends 'merchants/forms.html' %}
+
+  {% block title %}
+    Scrach Form
+  {% endblock %}
+
+  <!-- background image -->
+  {% block css %}
+  {% load static %}
+  {% endblock %}
+
+{%block body %}
+<div id="bgimg">
+
+    <div class="card text-center btn-outline-dark form-control-lg" style="width: 350px;height: 436px;">
+        <div class="card-body">
+          <h4>Scrach Card</h4>
+          <div style="padding: 10% 10% 10% 10%;">
+              {{formscrach}}
+          </div>
+          <a href="#" class="btn btn-primary form-control" style="width: 50%;" >Generate</a>
+        </div>
+      </div>
+
+</div>
+{% endblock %}
+</html>

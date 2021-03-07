@@ -1,0 +1,8 @@
+#bgimg{
+    /* background: url('/static/merchants/images/scrach.jpg'); */
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    height: 100vh  ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
