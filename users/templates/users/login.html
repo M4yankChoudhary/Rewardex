@@ -16,10 +16,13 @@
                     </span>
                 </span>
               </div>
+              <form action="{% url 'userLogin' %}" method="POST">
+              {% csrf_token %}
               <div style="margin-top:20%">
                   {{form}}
               </div>
-              <a href="#" class="btn btn-primary form-control col-md-8 col-lg-8" style="margin-top: 10%;">Login</a>
+              <input type="submit" value="login" class="btn btn-primary form-control col-md-8 col-lg-8" style="margin-top: 10%;">
+            </form>
             </div>
         </div>
     </div>
