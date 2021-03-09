@@ -1,5 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django import forms
+from django.contrib.auth.models import User, Group
+from django.contrib.auth import authenticate
 
 # Create your views here.
 class Login(forms.Form):
@@ -18,6 +21,27 @@ def merchant_welcome(request):
 
 def merchant_login(request):
     form = Login()
+    if request.method == "POST":
+        login_form = Login(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['Username']
+            password = login_form.cleaned_data['Password']
+            # user = authenticate(username=username, password=password)
+            # user = User.objects.all()
+            # group = Group.objects.get(name="merchants")
+            # user_in_group = Group.objects.all()
+            check_user = User.objects.filter(groups__name="merchants")
+            
+            if check_user is not None:
+                for i in check_user:
+                    i = str(i)
+                    if username == i:
+                        user = authenticate(username=username, password=password)
+                        if user is not None:
+                            return HttpResponse("Logged in as merchant")
+                        return HttpResponse("Error")
+                return HttpResponse("Not a merchant")
+            return HttpResponse("Login failed")
     context = {
         "form" : form
     }
