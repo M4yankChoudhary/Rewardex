@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django import forms
+import datetime
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from .models import *
 
 # Create your views here.
 class Login(forms.Form):
@@ -27,10 +31,31 @@ def merchant_login(request):
 class Scratchgame(forms.Form):
     Offerpercnt = forms.IntegerField(label="Offer percent", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
     minorderplace = forms.IntegerField(label="Minimum order place", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
-    validdays = forms.IntegerField(label="Valid days", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
+    validupto = forms.DateField(label="Valid upto", initial = datetime.date.today, widget=forms.DateInput(attrs={'class' : 'form-control text-center', 'type': 'date'}))
 
 def scratch_event(request):
     formscratch = Scratchgame()
+
+    if request.method == "POST":
+        form = Scratchgame(request.POST)
+        if form.is_valid():
+            offer_upto = form.cleaned_data["Offerpercnt"]
+            min_order = form.cleaned_data["minorderplace"]
+            valid_upto = form.cleaned_data["validupto"]
+
+            merchant = MerchantName.objects.all()
+            get_name = None
+            for i in merchant:
+                print(i)
+                get_name = i
+
+            code = Codes(code="ueeu67", offer=offer_upto, minimum_value=min_order, date=valid_upto, store_owner=get_name)
+            code.save()
+
+            return HttpResponseRedirect(reverse('merchantEvents'))
+
+
+
     context = {
     "formscratch" : formscratch
     }
