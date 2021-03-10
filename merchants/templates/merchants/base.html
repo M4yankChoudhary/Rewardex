@@ -17,22 +17,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!-- Base -->
         <link rel="stylesheet" type="text/css" href="{% static 'merchants/base.css' %}">
-      <script src="{% static 'merchants/base.js' %}"></script>
+        <script src="{% static 'merchants/sidebar.js' %}"></script>
     </head>
     <body>
         <div id="mySidebar" class="sidebar">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-          <!-- <ul class="mdc-list">
-            <li class="mdc-list-item" tabindex="0">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a >Dashboard</a></span>
-            </li>
-            <li class="mdc-list-item">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><a >Events</a></span>
-            </li>
-          </ul> -->
-
           <div class="mdc-drawer__content">
             <nav class="mdc-list">
               <a class="mdc-list-item mdc-list-item--activated active" href="{% url 'merchantDashboard' %}" aria-current="page">

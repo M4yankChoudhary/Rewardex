@@ -8,5 +8,5 @@ urlpatterns = [
     path('merchant/login/', views.merchant_login, name="merchantLogin"),
     path('merchant/events/', views.merchant_events, name="merchantEvents"),
     path('merchant/welcome/', views.merchant_welcome, name="merchantWelcome"),
-    path('merchant/scratchform/', views.scratch_event, name="merchantscratch"),
+    path('merchant/scratch/form/', views.scratch_event, name="merchantScratch"),
 ]

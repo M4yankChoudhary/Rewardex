@@ -9,20 +9,25 @@ from .models import *
 
 # Create your views here.
 class Login(forms.Form):
+    ''' Merchant Login Form '''
     Username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
     Password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
 
 
 def merchant_dashboard(request):
+    ''' Merchant Dashboard '''
     return render(request, "merchants/dashboard.html")
 
 def merchant_events(request):
+    ''' Merchant Events '''
     return render(request, "merchants/events.html")
 
 def merchant_welcome(request):
+    ''' Landing Page '''
     return render(request, "merchants/welcome.html")   
 
 def merchant_login(request):
+    ''' Merchant Login Form Validation '''
     form = Login()
     if request.method == "POST":
         login_form = Login(request.POST)
@@ -49,11 +54,13 @@ def merchant_login(request):
 
 
 class Scratchgame(forms.Form):
+    ''' Scratch Form '''
     Offerpercnt = forms.IntegerField(label="Offer percent", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
     minorderplace = forms.IntegerField(label="Minimum order place", widget=forms.TextInput(attrs={'class' : 'form-control text-center'}))
     validupto = forms.DateField(label="Valid upto", initial = datetime.date.today, widget=forms.DateInput(attrs={'class' : 'form-control text-center', 'type': 'date'}))
 
 def scratch_event(request):
+    ''' Scratch Form Validation '''
     formscratch = Scratchgame()
 
     if request.method == "POST":
@@ -79,4 +86,4 @@ def scratch_event(request):
     context = {
     "formscratch" : formscratch
     }
-    return render(request, "merchants/scratchform.html", context)
+    return render(request, "merchants/scratch_form.html", context)

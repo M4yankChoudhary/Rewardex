@@ -5,12 +5,17 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
 
 from merchants.models import Codes
+
 # Create your views here.
+
+
 class Login(forms.Form):
+    ''' Login Form  '''
     Username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
     Password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
 
 class Signup(forms.Form):
+    ''' Signup Form  '''
     f_name = forms.CharField(label="First Name", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
     l_name = forms.CharField(label="Last Name", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
     username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
@@ -19,6 +24,7 @@ class Signup(forms.Form):
 
 
 def user_dashboard(request):
+    ''' User Dashboard  '''
     return render(request, "users/dashboard.html")
 
 def index(request):
@@ -28,6 +34,7 @@ def index(request):
     return render(request, "users/index.html", context)
 
 def user_login(request):
+    ''' User Login Form Validation '''
     form = Login()
     if request.method == "POST":
         login_form = Login(request.POST)
@@ -57,6 +64,7 @@ def user_login(request):
     return render(request, "users/login.html", context)
 
 def user_signup(request):
+    ''' User Signup Form Validation '''
     form = Signup()
     if request.method == "POST":
         form = Signup(request.POST)

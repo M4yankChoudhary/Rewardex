@@ -4,24 +4,17 @@
     Scrach Form
   {% endblock %}
 
-  <!-- background image -->
   {% load static %}
+  
   {% block css %}
-  <style>
-    .bgimg {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="{% static 'merchants/scratch_form.css' %}">
   {% endblock %}
 
 
 {%block main %}
 <div class="bgimg">
-    <form action="{% url 'merchantscratch' %}", method="POST">
-      {% csrf_tocken %}
+    <form action="{% url 'merchantScratch' %}", method="POST">
+      {% csrf_token %}
     <div class="card text-center btn-outline-dark form-control-lg" style="width: 350px;height: 436px;">
         <div class="card-body">
           <h4>Scrach Card</h4>
