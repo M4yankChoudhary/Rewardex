@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django import forms
 
+from merchant.models import Codes
 # Create your views here.
 class Login(forms.Form):
     Username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control col-md-8 col-lg-8'}))
@@ -16,6 +17,12 @@ class Signup(forms.Form):
 
 def user_dashboard(request):
     return render(request, "users/dashboard.html")
+
+def index(request):
+    context = {
+        "codes": Codes.objects.all()
+    }
+    return render(request, "users/index.html", context)
 
 def user_login(request):
     form = Login()
