@@ -5,11 +5,13 @@
     <div class="card text-center" style="width: 350px;height: 436px;">
         <div class="card-body" style="margin:10% auto 10% auto;">
           <h4>Login</h4>
-          <div style="margin-top:20%">
-              {{form}}
-          </div>
-          <a href="#" class="btn btn-primary form-control col-md-8 col-lg-8" style="margin-top: 10%;">Login</a>
-        </div>
+          <form action="{% url 'merchantLogin' %}" method="POST">
+            {% csrf_token %}
+            <div style="margin-top:20%">
+                {{form}}
+            </div>
+            <input type="submit" value="login" class="btn btn-primary form-control col-md-8 col-lg-8" style="margin-top: 10%;">
+          </form>
     </div>
 </div>
 {% endblock %}

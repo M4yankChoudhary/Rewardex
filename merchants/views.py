@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User, Group
+from django.contrib.auth import authenticate
 from django.shortcuts import render
 from django import forms
 import datetime
@@ -7,8 +9,8 @@ from .models import *
 
 # Create your views here.
 class Login(forms.Form):
-    Username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control col-md-8 col-lg-8'}))
-    Password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class' : 'form-control col-md-8 col-lg-8'}))
+    Username = forms.CharField(label="Username", widget=forms.TextInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
+    Password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class' : 'form-control text-center col-md-8 col-lg-8'}))
 
 
 def merchant_dashboard(request):
@@ -22,10 +24,28 @@ def merchant_welcome(request):
 
 def merchant_login(request):
     form = Login()
+    if request.method == "POST":
+        login_form = Login(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['Username']
+            password = login_form.cleaned_data['Password']
+            check_user = User.objects.filter(groups__name="merchants")
+            
+            if check_user is not None:
+                for i in check_user:
+                    i = str(i)
+                    if username == i:
+                        user = authenticate(username=username, password=password)
+                        if user is not None:
+                            return HttpResponse("Logged in as merchant")
+                        return HttpResponse("Error")
+                return HttpResponse("Not a merchant")
+            return HttpResponse("Login failed")
     context = {
         "form" : form
     }
     return render(request, "merchants/login.html", context)
+
 
 
 class Scratchgame(forms.Form):
