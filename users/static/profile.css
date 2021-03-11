@@ -1,0 +1,54 @@
+body {
+  background-color: #f9f9fa;
+}
+
+.padding {
+  padding: 3rem !important;
+}
+
+.user-card-full {
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 5px;
+  color: blue;
+  border: none;
+  margin-bottom: 30px;
+}
+
+.user-card-full .user-profile {
+  border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+  background: linear-gradient(to right, #ee5a6f, #f29263);
+}
+
+.user-profile {
+  padding: 20px 0;
+}
+
+.card-block {
+  padding: 1.25rem;
+}
+
+.img-radius {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.name {
+  margin-top: 20px;
+  font-size: x-large;
+}
+
+.info {
+  font-size: 30px;
+  color: black;
+}
+
+.row {
+  padding: 20px;
+}
