@@ -1,10 +1,13 @@
+import secrets
+import datetime
+from django import forms
+from django.urls import reverse
+from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
-from django.shortcuts import render
-from django import forms
-import datetime
+from django.db.models.signals import post_save
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+
 from .models import *
 
 # Create your views here.
@@ -70,14 +73,17 @@ def scratch_event(request):
             min_order = form.cleaned_data["minorderplace"]
             valid_upto = form.cleaned_data["validupto"]
 
+            
+
             merchant = MerchantName.objects.all()
             get_name = None
             for i in merchant:
                 print(i)
                 get_name = i
 
-            code = Codes(code="ueeu67", offer=offer_upto, minimum_value=min_order, date=valid_upto, store_owner=get_name)
+            code = Codes(offer=offer_upto, minimum_value=min_order, date=valid_upto, store_owner=get_name)
             code.save()
+            post_save.connect(generate_code, sender=Codes) # after the server is idle
 
             return HttpResponseRedirect(reverse('merchantEvents'))
 
@@ -87,3 +93,16 @@ def scratch_event(request):
     "formscratch" : formscratch
     }
     return render(request, "merchants/scratch_form.html", context)
+
+
+# reciever
+def generate_code(sender, instance, created, **kwargs):
+    ''' Generate Refferal Codes  '''
+    post_save.disconnect(generate_code, sender=Codes)
+    primary_key = str(instance.id)
+    generate_from = "ABCDEFGHIJKLMNPQRSTVWXYZ"
+    random_str = "".join(secrets.choice(generate_from) for i in range(8))
+    instance.code = (random_str + primary_key)[-8:]
+    instance.save()
+
+post_save.connect(generate_code, sender=Codes) # when server is started
