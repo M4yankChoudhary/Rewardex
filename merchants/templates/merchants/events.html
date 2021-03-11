@@ -5,23 +5,23 @@ Merchant - Events
 {% endblock %}
 
 {% block main %}
-{% load static %}
-<div id="cards_container">
-            
-    <a class="cardclick" href="{% url 'merchantScratch' %}">
-    <div class="card" style="width: 18rem;">
-      <i class="fa fa-ticket fa-5x text-danger" aria-hidden="true"></i>
-      <img src="{% static 'merchants/images/default.png' %}" style="height: 180px; width: 180px; margin-top: 20px;" class="card-img-top" alt="...">
-      <div class="card-body" style="width: 100%;">
-        <p class="card-text" style="text-align: center; padding: 10px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-    </a>
+<div>
+    <a href="{% url 'merchantEvents' %}" ><button style="width: 10%; height: 20%; margin: 10px 2px 10px 90%; " type="submit">Create event</button></a>
+</div>
 
-    {% for i in codes %}
-      {{i.code}}
+{% load static %}
+<div class="event_container">
+    {% for code in event_values %}
+    <div style="background-color: aquamarine; width: 10%; padding: 20px;">
+    {{code.code}}<br>
+    {{code.store_owner}}
+    </div><br>
     {% endfor %}
-    
 </div>
 
 {% endblock %}
+
+<!-- {% for i in codes %}
+      {{i}}
+    {% endfor %} -->
+    

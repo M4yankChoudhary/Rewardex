@@ -21,9 +21,17 @@ def merchant_dashboard(request):
     ''' Merchant Dashboard '''
     return render(request, "merchants/dashboard.html")
 
-def merchant_events(request):
+def merchant_create_events(request):                           
     ''' Merchant Events '''
-    return render(request, "merchants/events.html")
+    return render(request, "merchants/create_events.html")
+
+def events(request):
+    ''' Merchant Generated Events '''
+    event_values = Codes.objects.all()
+    context = {
+        "event_values":event_values
+    }
+    return render(request,"merchants/events.html", context)
 
 def merchant_welcome(request):
     ''' Landing Page '''
@@ -78,14 +86,14 @@ def scratch_event(request):
             merchant = MerchantName.objects.all()
             get_name = None
             for i in merchant:
-                print(i)
                 get_name = i
-
+                
             code = Codes(offer=offer_upto, minimum_value=min_order, date=valid_upto, store_owner=get_name)
+            
             code.save()
             post_save.connect(generate_code, sender=Codes) # after the server is idle
-
-            return HttpResponseRedirect(reverse('merchantEvents'))
+            
+            return HttpResponseRedirect(reverse('merchantGeneratedEvents'))
 
 
 
