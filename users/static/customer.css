@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.slider {
+  margin: 20px;
+}
+
+#carouselExampleCaptions {
+  height: 500px;
+  overflow: hidden;
+}
+
+.d-block {
+  opacity: 0.8;
+}
+
+.carousel-caption {
+  top: 1rem;
+  color: white;
+  font-size: 30px;
+}
+
+.offer {
+  font-size: 30px;
+}
+.card {
+  text-align: center;
+}
+
+.row {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.card-img-top {
+  height: 200px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card-title {
+  margin-top: 10px;
+}
